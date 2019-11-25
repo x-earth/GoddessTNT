@@ -4,8 +4,8 @@
 
 使用方法：
 
-工程下build.gradle添加 **maven { url 'https://jitpack.io' }**
-Add **maven { url ‘https://jitpack.io’ }** under build.gradle
+工程下build.gradle添加 **maven { url 'https://jitpack.io' }**<br>
+Add **maven { url ‘https://jitpack.io’ }** under build.gradle<br>
 ```java
 allprojects {
     repositories {
@@ -18,8 +18,8 @@ allprojects {
 }
 ```
 
-Modle之下添加 **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.1'**
-Add under Modle **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.1'**
+Modle之下添加 **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.1'**<br>
+Add under Modle **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.1'**<br>
 
 ```cpp
 dependencies {

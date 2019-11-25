@@ -55,7 +55,8 @@ String s = Md5.toMd5("明文/Clear text");
 //s = Ciphertext
 ```
 ---
-**No3.** ViewPager加载Fragment适配器 (ViewPager loads Fragment adapter)
+**No3.** ViewPager加载Fragment适配器 (ViewPager loads Fragment adapter) <br>
+适用于普通 (Suitable for ordinary) <br>
 
 ```java
 ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);

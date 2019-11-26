@@ -32,7 +32,7 @@ Add under Modle **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.2'**<br>
 ```cpp
 dependencies {
     ···
-    implementation 'com.github.ThirdGoddess:GoddessTNT:v1.1'
+    implementation 'com.github.ThirdGoddess:GoddessTNT:v1.2'
 }
 
 ```

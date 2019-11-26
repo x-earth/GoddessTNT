@@ -3,7 +3,7 @@
 ---
 源代码：
 
-**Github**: [https://github.com/ThirdGoddess/GoddessTNT](https://github.com/ThirdGoddess/GoddessTNT)
+**Github**: [https://github.com/ThirdGoddess/GoddessTNT](https://github.com/ThirdGoddess/GoddessTNT)<br>
 **CSDN**: [https://myhub.blog.csdn.net](https://myhub.blog.csdn.net)
 
 欢迎大家在Github上共维护，方便大家使用！
@@ -26,8 +26,8 @@ allprojects {
 }
 ```
 
-Modle之下添加 **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.1'**<br>
-Add under Modle **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.1'**<br>
+Modle之下添加 **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.2'**<br>
+Add under Modle **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.2'**<br>
 
 ```cpp
 dependencies {

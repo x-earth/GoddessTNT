@@ -1,7 +1,15 @@
 ### Android常用工具类封装
 ### Android common tool class package
 ---
+源代码：
 
+**Github**: [https://github.com/ThirdGoddess/GoddessTNT](https://github.com/ThirdGoddess/GoddessTNT)
+**CSDN**: [https://myhub.blog.csdn.net](https://myhub.blog.csdn.net)
+
+欢迎大家在Github上共维护，方便大家使用！
+刚开始写这个库，东西有点少，以后我将时常增加东西！
+
+---
 使用方法：
 
 工程下build.gradle添加 **maven { url 'https://jitpack.io' }**<br>
@@ -55,7 +63,19 @@ String s = Md5.toMd5("明文/Clear text");
 //s = Ciphertext
 ```
 ---
-**No3.** ViewPager加载Fragment适配器 (ViewPager loads Fragment adapter) <br>
+**No3.** SHA常用加密 (SHA commonly used encryption)
+
+```java
+//Sha常用加密
+String sha1 = SHA.toSHA1("#");
+String sha224 = SHA.toSHA224("#");
+String sha256 = SHA.toSHA256("#");
+String sha384 = SHA.toSHA384("#");
+String sha512 = SHA.toSHA512("#");
+```
+
+---
+**No4.** ViewPager加载Fragment适配器 (ViewPager loads Fragment adapter) <br>
 适用于普通 (Suitable for ordinary) <br>
 
 ```java

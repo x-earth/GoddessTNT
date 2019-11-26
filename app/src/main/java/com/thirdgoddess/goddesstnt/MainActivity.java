@@ -17,25 +17,13 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 public class MainActivity extends AppCompatActivity {
-
-    private ViewPager viewPager;
+    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initView();
-
-        //Sha常用加密
-        String sha1 = SHA.toSHA1("#");
-        String sha224 = SHA.toSHA224("#");
-        String sha256 = SHA.toSHA256("#");
-        String sha384 = SHA.toSHA384("#");
-        String sha512 = SHA.toSHA512("#");
 
     }
 
-    private void initView() {
-
-    }
 }

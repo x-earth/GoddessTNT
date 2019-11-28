@@ -1,9 +1,19 @@
 ### Android常用工具类封装
-### Android common tool class package
+
+Android common tool class package
+
+---
+
+No1. Dip和Px之间转换 (Conversion between Dip and Px)
+No2. Md5加密（Md5 encryption）
+No3. SHA常用加密 (SHA commonly used encryption)
+No4. ViewPager加载Fragment适配器 (ViewPager loads Fragment adapter)
+No4. 剪贴板复制和粘贴操作 (Clipboard copy and paste operations)
+
 ---
 源代码：
 
-**Github**: [https://github.com/ThirdGoddess/GoddessTNT](https://github.com/ThirdGoddess/GoddessTNT)<br>
+**Github**: [https://github.com/ThirdGoddess/GoddessTNT](https://github.com/ThirdGoddess/GoddessTNT)
 **CSDN**: [https://myhub.blog.csdn.net](https://myhub.blog.csdn.net)
 
 欢迎大家在Github上共维护，方便大家使用！
@@ -38,7 +48,7 @@ dependencies {
 ```
 
 ---
-**No1.** Dip和Px之间转换 (Conversion between Dip and Px)
+### No1. Dip和Px之间转换 (Conversion between Dip and Px)
 
 ```java
 //px转dip
@@ -52,7 +62,7 @@ DipPx.pxGoDip(this, 123f);
 DipPx.dipGoPx(this, 123f);
 ```
 ---
-**No2.** Md5加密（Md5 encryption）
+### No2. Md5加密（Md5 encryption）
 
 ```java
 //Md5加密
@@ -63,7 +73,7 @@ String s = Md5.toMd5("明文/Clear text");
 //s = Ciphertext
 ```
 ---
-**No3.** SHA常用加密 (SHA commonly used encryption)
+### No3. SHA常用加密 (SHA commonly used encryption)
 
 ```java
 //Sha常用加密
@@ -75,7 +85,7 @@ String sha512 = SHA.toSHA512("#");
 ```
 
 ---
-**No4.** ViewPager加载Fragment适配器 (ViewPager loads Fragment adapter) <br>
+### No4. ViewPager加载Fragment适配器 (ViewPager loads Fragment adapter) <br>
 适用于普通 (Suitable for ordinary) <br>
 
 ```java
@@ -95,6 +105,20 @@ viewPager.setAdapter(new ViewPagerFragmentAdapter(getSupportFragmentManager(), f
 
 //FragmentPagerAdapter：在每次切换页面的时候，是将fragment进行分离，适合页面较少的fragment使用以保存一些内存，对系统内存不会有太大影响。
 //FragmentPagerAdapter: Each time the page is switched, the fragment is separated, and the fragment is used for a small number of pages to save some memory, which does not have much impact on system memory.
+```
+
+---
+### No4. 剪贴板复制和粘贴操作 (Clipboard copy and paste operations)
+
+```java
+//将字符串复制到剪贴板
+//Copy this string to clipboard.
+Clipboard.putClipboard(this, "copy the text!");
+Clipboard.putClipboard(this, "lable", "copy the text!");
+
+//获取剪贴板上的值
+//Get string on clipboar.
+String clipboard = Clipboard.getClipboard(this);
 ```
 
 ---

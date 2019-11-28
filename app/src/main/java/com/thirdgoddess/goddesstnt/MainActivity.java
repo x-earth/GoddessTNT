@@ -2,7 +2,9 @@ package com.thirdgoddess.goddesstnt;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.thirdgoddess.tnt.clipboard.Clipboard;
 import com.thirdgoddess.tnt.encryption.Md5;
 import com.thirdgoddess.tnt.encryption.SHA;
 import com.thirdgoddess.tnt.view.DipPx;
@@ -17,7 +19,6 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 public class MainActivity extends AppCompatActivity {
-    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

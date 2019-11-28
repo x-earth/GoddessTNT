@@ -36,13 +36,13 @@ allprojects {
 }
 ```
 
-Modle之下添加 **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.2'**<br>
-Add under Modle **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.2'**<br>
+Modle之下添加 **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.3'**<br>
+Add under Modle **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.3'**<br>
 
 ```cpp
 dependencies {
     ···
-    implementation 'com.github.ThirdGoddess:GoddessTNT:v1.2'
+    implementation 'com.github.ThirdGoddess:GoddessTNT:v1.3'
 }
 
 ```

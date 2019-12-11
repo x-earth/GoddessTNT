@@ -4,7 +4,14 @@ Android common tool class package
 
 ---
 
-@[toc]
+Android常用工具类封装
+No1. Dip和Px之间转换 (Conversion between Dip and Px)
+No2. Md5加密（Md5 encryption）
+No3. SHA常用加密 (SHA commonly used encryption)
+No4. ViewPager加载Fragment适配器 (ViewPager loads Fragment adapter)
+No5. 剪贴板复制和粘贴操作 (Clipboard copy and paste operations)
+No6. 自定义加载框 (Custom load box)
+No7. Bitmap保存到本地相册 (Bitmap save to local album)
 
 ---
 源代码：

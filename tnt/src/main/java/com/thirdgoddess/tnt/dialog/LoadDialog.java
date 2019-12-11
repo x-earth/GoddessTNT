@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -41,31 +40,31 @@ public class LoadDialog {
             progressBar = inflate.findViewById(R.id.progressBar);
             viewText = inflate.findViewById(R.id.text);
 
-            if (DialogTool.getBackgroundColor() != null) {
-                root.setBackgroundColor(Color.parseColor(DialogTool.getBackgroundColor()));
+            if (DialogUtils.getBackgroundColor() != null) {
+                root.setBackgroundColor(Color.parseColor(DialogUtils.getBackgroundColor()));
             }
 
-            if (DialogTool.isTextGone()) {
+            if (DialogUtils.isTextGone()) {
                 viewText.setVisibility(View.GONE);
             } else {
-                if (DialogTool.isDialogTextStyle()) {
+                if (DialogUtils.isDialogTextStyle()) {
                     viewText.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
                 }
 
-                if (DialogTool.getDialogTextColor() != null) {
-                    viewText.setTextColor(Color.parseColor(DialogTool.getDialogTextColor()));
+                if (DialogUtils.getDialogTextColor() != null) {
+                    viewText.setTextColor(Color.parseColor(DialogUtils.getDialogTextColor()));
                 }
 
-                if (DialogTool.getTextSize() != 0f) {
-                    viewText.setTextSize(DialogTool.getTextSize());
+                if (DialogUtils.getTextSize() != 0f) {
+                    viewText.setTextSize(DialogUtils.getTextSize());
                 }
 
-                if (DialogTool.getText() != null) {
-                    viewText.setText(DialogTool.getText());
+                if (DialogUtils.getText() != null) {
+                    viewText.setText(DialogUtils.getText());
                 }
             }
 
-            if (DialogTool.isDialogCance()) {
+            if (DialogUtils.isDialogCance()) {
                 viewRoot.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -78,7 +77,7 @@ public class LoadDialog {
             }
 
             builder.setView(inflate);
-            builder.setCancelable(DialogTool.isDialogCance());
+            builder.setCancelable(DialogUtils.isDialogCance());
 
         }
     }
@@ -107,7 +106,7 @@ public class LoadDialog {
 
     public void show() {
         if (builder != null) {
-            alertDialog = builder.show();
+                alertDialog = builder.show();
             alertDialog.getWindow().setBackgroundDrawableResource(R.color.transparent);
         }
     }

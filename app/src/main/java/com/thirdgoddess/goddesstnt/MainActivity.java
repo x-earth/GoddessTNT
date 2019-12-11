@@ -1,55 +1,54 @@
 package com.thirdgoddess.goddesstnt;
 
+import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.os.Handler;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.thirdgoddess.tnt.dialog.DialogTool;
-import com.thirdgoddess.tnt.dialog.LoadDialog;
+import com.thirdgoddess.tnt.image.ImageUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ImageView imageView;
+
+    @SuppressLint("SdCardPath")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initView();
 
-        DialogTool dialogTool = new DialogTool.DialogSetting()
-                .setDialogTextColor("#000000")//设置加载框字体颜色
-                .setBackgroundColor(null)//设置背景颜色，默认是白色
-                .setDialogTextStyle(true)//字体是否加粗
-                .setTextSize(15f)//字体大小
-                .setCancelable(false)//点击空白处是否停止加载
-                .setText("加载中...")//加载提示文字
-                .setTextGone(false)//是否隐藏文字
-                .over();
+        //模拟数据源
+        imageView.setImageResource(R.mipmap.xm);
 
+        //模拟Bitmap
+        Bitmap bitmap = ((BitmapDrawable) ((ImageView) imageView).getDrawable()).getBitmap();
 
-        //创建Dialog
-        final LoadDialog loadDialog = new LoadDialog(this);
+        //上下文, bitmap
+        boolean b = ImageUtils.saveBitmap(this, bitmap);
 
-        //点击空白处是否停止加载,这里的优先级最高
-        loadDialog.setCancelable(true);
+        //上下文, bitmap, 路径和文件名
+        boolean b1 = ImageUtils.saveBitmap(this, bitmap, "/sdcard/pic/helloworld.jpg");
 
-        //加载提示文字,这里的优先级最高
-        loadDialog.setText("加载中...");
+        //上下文, bitmap, 路径和文件名, 返回状态码(动态申请权限时返回的状态码，默认返回690,可用于回调 onRequestPermissionsResult 方法 )
+        boolean b2 = ImageUtils.saveBitmap(this, bitmap, "/sdcard/pic/helloworld.jpg", 123);
 
-        //是否隐藏文字,这里的优先级最高
-        loadDialog.setTextGone(true);
+        /*以上都是返回布尔类型，返回true代表保存成功，false代表保存失败*/
 
-        //显示加载框
-        loadDialog.show();
+        if (b) {
+            Toast.makeText(this, "保存成功", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "保存失败", Toast.LENGTH_SHORT).show();
+        }
 
-        //模拟6s后加载完成
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+    }
 
-                //关闭加载框
-                loadDialog.dismiss();
-            }
-        }, 6000);
+    private void initView() {
+        imageView = (ImageView) findViewById(R.id.imageView);
     }
 
 }

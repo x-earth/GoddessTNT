@@ -6,7 +6,7 @@ package com.thirdgoddess.tnt.dialog;
  * @Github https://github.com/ThirdGoddess
  * @date :2019-12-11 17:20
  */
-public class DialogTool {
+public class DialogUtils {
     private static String backgroundColor = null;
     private static String progressBarColor = null;
     private static String dialogTextColor = null;
@@ -25,7 +25,7 @@ public class DialogTool {
     }
 
     public static boolean isDialogTextStyle() {
-        return dialogTextStyle;
+            return dialogTextStyle;
     }
 
     public static boolean isDialogCance() {
@@ -81,7 +81,7 @@ public class DialogTool {
             return this;
         }
 
-        public DialogTool over() {
+        public DialogUtils over() {
             return null;
         }
 

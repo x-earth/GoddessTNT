@@ -12,6 +12,7 @@ No4. ViewPager加载Fragment适配器 (ViewPager loads Fragment adapter)<br>
 No5. 剪贴板复制和粘贴操作 (Clipboard copy and paste operations)<br>
 No6. 自定义加载框 (Custom load box)<br>
 No7. Bitmap保存到本地相册 (Bitmap save to local album)<br>
+No8. 手机号检验正确性 (Mobile phone number check correctness)<br>
 
 ---
 源代码：
@@ -40,13 +41,13 @@ allprojects {
 }
 ```
 
-Modle之下添加 **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.5'**<br>
-Add under Modle **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.5'**<br>
+Modle之下添加 **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.6'**<br>
+Add under Modle **implementation 'com.github.ThirdGoddess:GoddessTNT:v1.6'**<br>
 
 ```cpp
 dependencies {
     ···
-    implementation 'com.github.ThirdGoddess:GoddessTNT:v1.5'
+    implementation 'com.github.ThirdGoddess:GoddessTNT:v1.6'
 }
 
 ```
@@ -252,6 +253,13 @@ if (b) {
 //收值，直接调用，如下
 ImageUtils.saveBitmap(this, bitmap);
 
+```
+
+---
+### No8. 手机号检验正确性 (Mobile phone number check correctness)
+
+```java
+ boolean correctness = Phone.isCorrectness("12345678910");
 ```
 
 <br><br><br>

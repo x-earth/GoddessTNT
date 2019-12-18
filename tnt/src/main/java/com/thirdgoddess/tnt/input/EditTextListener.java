@@ -14,13 +14,13 @@ import android.widget.EditText;
  */
 public class EditTextListener {
 
-    private static EditText editText;
+    private EditText editText;
 
     public EditTextListener(EditText editText) {
-        EditTextListener.editText = editText;
+        this.editText = editText;
     }
 
-    public static void change(final Change change) {
+    public void change(final Change change) {
         if (editText != null) {
             editText.addTextChangedListener(new TextWatcher() {
                 @Override

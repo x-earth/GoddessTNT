@@ -48,6 +48,9 @@ public class Web {
 
     private boolean keepView = false;
 
+    private static final String mimeType = "text/html";
+    private static final String enCoding = "utf-8";
+
     /**
      * 构造
      *
@@ -307,6 +310,11 @@ public class Web {
         });
     }
 
+    /**
+     * 调用Js某个方法
+     *
+     * @param function
+     */
     public void post(final String function) {
         if (webView != null) {
             webView.post(new Runnable() {
@@ -315,6 +323,30 @@ public class Web {
                     webView.loadUrl("javascript:" + function);
                 }
             });
+        }
+    }
+
+    /**
+     * 加载字符串
+     *
+     * @param url
+     */
+    public void loadString(String url) {
+        if (webView != null) {
+            webView.loadDataWithBaseURL(null, url, mimeType, enCoding, null);
+        }
+    }
+
+    /**
+     * 加载字符串
+     *
+     * @param url
+     * @param mimeType
+     * @param enCoding
+     */
+    public void loadString(String url, String mimeType, String enCoding) {
+        if (webView != null) {
+            webView.loadDataWithBaseURL(null, url, mimeType, enCoding, null);
         }
     }
 

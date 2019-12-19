@@ -30,12 +30,12 @@ public class EditTextListener {
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    change.change(s.toString());
+                    
                 }
 
                 @Override
                 public void afterTextChanged(Editable s) {
-
+                    change.change(s.toString());
                 }
             });
         }

@@ -2,6 +2,7 @@ package com.thirdgoddess.tnt.input;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.EditText;
 
 /**
@@ -30,12 +31,12 @@ public class EditTextListener {
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    
+                    change.change(s.toString(), start);
                 }
 
                 @Override
                 public void afterTextChanged(Editable s) {
-                    change.change(s.toString());
+
                 }
             });
         }
@@ -44,6 +45,6 @@ public class EditTextListener {
     }
 
     public interface Change {
-        void change(String text);
+        void change(String text, int start);
     }
 }

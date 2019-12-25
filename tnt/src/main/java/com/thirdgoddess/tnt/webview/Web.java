@@ -3,7 +3,9 @@ package com.thirdgoddess.tnt.webview;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
@@ -225,7 +227,11 @@ public class Web {
                     if (context != null && loadDialogStatus) {
                         loadDialog = new LoadDialog(context);
                         loadDialog.setTextGone(true);
-                        loadDialog.show();
+                        try {
+                            loadDialog.show();
+                        } catch (WindowManager.BadTokenException ignored) {
+                            Log.d("tnt-web", "loadDialog WindowManager.BadTokenException");
+                        }
                     }
 
                 }
@@ -285,7 +291,12 @@ public class Web {
                     if (context != null && loadDialogStatus) {
                         loadDialog = new LoadDialog(context);
                         loadDialog.setTextGone(true);
-                        loadDialog.show();
+                        try {
+                            loadDialog.show();
+                        } catch (WindowManager.BadTokenException ignored) {
+                            Log.d("tnt-web", "loadDialog WindowManager.BadTokenException");
+                        }
+
                     }
                     onLoadListener.onStart(view, url, favicon);
 

@@ -227,6 +227,7 @@ public class Web {
                 @Override
                 public void onPageStarted(WebView view, String url, Bitmap favicon) {
                     super.onPageStarted(view, url, favicon);
+                    isSuccess = true;
                     //开始加载
                     if (context != null && loadDialogStatus) {
                         loadDialog = new LoadDialog(context);

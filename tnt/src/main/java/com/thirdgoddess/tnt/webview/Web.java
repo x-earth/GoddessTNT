@@ -275,7 +275,7 @@ public class Web {
                 public void onPageFinished(WebView view, String url) {
                     super.onPageFinished(view, url);
                     //加载结束
-                    if (context != null && loadDialogStatus) {
+                    if (context != null && loadDialogStatus && loadDialog != null) {
                         loadDialog.dismiss();
                     }
                     onLoadListener.onFinish(view, url);

@@ -55,6 +55,9 @@ public class Web {
     private static final String mimeType = "text/html";
     private static final String enCoding = "utf-8";
 
+    //用于监听是否加载成功
+    private boolean isSuccess = true;
+
     /**
      * 构造
      *
@@ -211,64 +214,6 @@ public class Web {
     /**
      * WebView加载监听
      */
-    public void setOnLoadListener() {
-        if (webView != null) {
-            webView.setWebViewClient(new WebViewClient() {
-
-                @Override
-                public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                    super.onReceivedError(view, request, error);
-                }
-
-                @Override
-                public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                    super.onPageStarted(view, url, favicon);
-                    //开始加载
-                    if (context != null && loadDialogStatus) {
-                        loadDialog = new LoadDialog(context);
-                        loadDialog.setTextGone(true);
-                        try {
-                            loadDialog.show();
-                        } catch (WindowManager.BadTokenException ignored) {
-                            Log.d("tnt-web", "loadDialog WindowManager.BadTokenException");
-                        }
-                    }
-
-                }
-
-                @Override
-                public void onPageFinished(WebView view, String url) {
-                    super.onPageFinished(view, url);
-                    //加载结束
-                    if (context != null && loadDialogStatus && loadDialog != null) {
-                        loadDialog.dismiss();
-                    }
-                }
-
-                // 链接跳转都会走这个方法
-                @Override
-                public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                    return true;
-                }
-            });
-        }
-    }
-
-    /**
-     * 取消当前WebView长按操作
-     */
-    public void setNoSelectionText() {
-        webView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                return true;
-            }
-        });
-    }
-
-    /**
-     * WebView加载监听
-     */
     public void setOnLoadListener(final OnLoadListener onLoadListener) {
         if (webView != null) {
             webView.setWebViewClient(new WebViewClient() {
@@ -276,12 +221,7 @@ public class Web {
                 @Override
                 public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
                     super.onReceivedError(view, request, error);
-
-                    //关闭窗口
-                    if (context != null && loadDialogStatus && loadDialog != null) {
-                        loadDialog.dismiss();
-                    }
-                    onLoadListener.urlLoadError(view, request, error);
+                    isSuccess = false;
                 }
 
                 @Override
@@ -294,12 +234,11 @@ public class Web {
                         try {
                             loadDialog.show();
                         } catch (WindowManager.BadTokenException ignored) {
-                            Log.d("tnt-web", "loadDialog WindowManager.BadTokenException");
+                            Log.e("tnt-web", "loadDialog WindowManager.BadTokenException");
                         }
 
                     }
                     onLoadListener.onStart(view, url, favicon);
-
                 }
 
                 @Override
@@ -309,7 +248,7 @@ public class Web {
                     if (context != null && loadDialogStatus && loadDialog != null) {
                         loadDialog.dismiss();
                     }
-                    onLoadListener.onFinish(view, url);
+                    onLoadListener.onFinish(view, url, isSuccess);
                 }
 
                 // 链接跳转都会走这个方法
@@ -318,6 +257,7 @@ public class Web {
                     onLoadListener.urlLoading(view, url);
                     return keepView;
                 }
+
             });
         }
     }
@@ -385,13 +325,12 @@ public class Web {
      * 加载开始、完毕、跳转监听
      */
     public interface OnLoadListener {
-        void onStart(WebView view, String url, Bitmap favicon);
 
-        void onFinish(WebView view, String url);
+        void onStart(WebView view, String url, Bitmap favicon);
 
         void urlLoading(WebView view, String url);
 
-        void urlLoadError(WebView view, WebResourceRequest request, WebResourceError error);
+        void onFinish(WebView view, String url, boolean isSuccess);
     }
 
     /**

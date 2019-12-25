@@ -28,22 +28,17 @@ public class MainActivity extends AppCompatActivity {
         web.setOnLoadListener(new Web.OnLoadListener() {
             @Override
             public void onStart(WebView view, String url, Bitmap favicon) {
-                Log.d("mylog-web", "onStart");
+
             }
 
             @Override
-            public void onFinish(WebView view, String url) {
-                Log.d("mylog-web", "onFinish");
+            public void onFinish(WebView view, String url, boolean isSuccess) {
+
             }
 
             @Override
             public void urlLoading(WebView view, String url) {
-                Log.d("mylog-web", "urlLoading");
-            }
 
-            @Override
-            public void urlLoadError(WebView view, WebResourceRequest request, WebResourceError error) {
-                Log.d("mylog-web", "error");
             }
         });
 

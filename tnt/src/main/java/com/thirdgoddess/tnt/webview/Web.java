@@ -5,6 +5,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.view.View;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -43,7 +45,7 @@ public class Web {
     //Dialog
     private LoadDialog loadDialog;
 
-    //是否开启加载框，默认false
+    //是否开启加载框，默认true
     private boolean loadDialogStatus = true;
 
     private boolean keepView = false;
@@ -210,6 +212,12 @@ public class Web {
     public void setOnLoadListener() {
         if (webView != null) {
             webView.setWebViewClient(new WebViewClient() {
+
+                @Override
+                public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                    super.onReceivedError(view, request, error);
+                }
+
                 @Override
                 public void onPageStarted(WebView view, String url, Bitmap favicon) {
                     super.onPageStarted(view, url, favicon);
@@ -258,6 +266,18 @@ public class Web {
     public void setOnLoadListener(final OnLoadListener onLoadListener) {
         if (webView != null) {
             webView.setWebViewClient(new WebViewClient() {
+
+                @Override
+                public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                    super.onReceivedError(view, request, error);
+
+                    //关闭窗口
+                    if (context != null && loadDialogStatus && loadDialog != null) {
+                        loadDialog.dismiss();
+                    }
+                    onLoadListener.urlLoadError(view, request, error);
+                }
+
                 @Override
                 public void onPageStarted(WebView view, String url, Bitmap favicon) {
                     super.onPageStarted(view, url, favicon);
@@ -359,6 +379,8 @@ public class Web {
         void onFinish(WebView view, String url);
 
         void urlLoading(WebView view, String url);
+
+        void urlLoadError(WebView view, WebResourceRequest request, WebResourceError error);
     }
 
     /**

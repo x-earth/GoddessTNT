@@ -47,8 +47,8 @@ public class Web {
     //Dialog
     private LoadDialog loadDialog;
 
-    //是否开启加载框，默认true
-    private boolean loadDialogStatus = true;
+    //是否开启加载框，默认false
+    private boolean loadDialogStatus = false;
 
     private boolean keepView = false;
 
